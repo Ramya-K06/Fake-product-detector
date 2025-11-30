@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Product Verification</title>
+
+    <style>
+
+        /* Global Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background: #b9d4f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container */
+        .signup-box {
+            width: 400px;
+            background: #dee3e9;
+            padding: 35px 30px;
+            border-radius: 14px;
+            box-shadow: 0px 4px 25px rgba(79, 116, 184, 0.08);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Title */
+        .signup-box h2 {
+            font-size: 28px;
+            color: #0f4c81;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        /* Input Groups */
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        /* Smooth focus animation */
+        .input-group input:focus {
+            border-color: #b9b4f2;
+            box-shadow: 0px 0px 8px rgba(0, 86, 214, 0.2);
+        }
+
+        /* Button */
+        .signup-btn {
+            width: 100%;
+            padding: 12px;
+            background: #0f4c81;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            margin-top: 5px;
+        }
+
+        .signup-btn:hover {
+            background: #003f9e;
+            transform: translateY(-2px);
+            box-shadow: 0px 4px 12px rgba(0, 86, 214, 0.25);
+        }
+
+        /* Login Redirect */
+        .login-text {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .login-text a {
+            color: #0056d6;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .login-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Subtle page animation */
+        @keyframes gentleFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+            100% { transform: translateY(0); }
+        }
+
+        .signup-box {
+            animation: fadeIn 0.8s ease-out, gentleFloat 6s ease-in-out infinite;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-box">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join to verify your product authenticity</p>
+
+        <form action="#" method="POST">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="Create a password" required>
+            </div>
+
+            <div class="input-group">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Re-enter password" required>
+            </div>
+
+            <button type="submit" class="signup-btn">Sign Up</button>
+
+            <p class="login-text">
+                Already have an account? <a href="login.html">Login</a>
+            </p>
+
+        </form>
+    </div>
+
+</body>
+</html>
+
+# Fake-product-detector
