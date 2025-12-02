@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Reports</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: #eef6ff;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 50px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #1b4b7c;
+        margin-bottom: 25px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #d9e6f6;
+        text-align: center;
+    }
+
+    th {
+        background-color: #1b4b7c;
+        color: white;
+    }
+
+    .status-real {
+        color: green;
+        font-weight: 600;
+    }
+
+    .status-fake {
+        color: red;
+        font-weight: 600;
+    }
+
+    .back-btn {
+        display: block;
+        width: 200px;
+        margin: 30px auto 0;
+        padding: 12px;
+        background: #1b4b7c;
+        color: white;
+        text-align: center;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+
+    .back-btn:hover {
+        background: #163e66;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Product Scan Reports</h1>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Code</th>
+            <th>Result</th>
+        </tr>
+
+        <tr>
+            <td>2025-02-05</td>
+            <td>Nike Shoes</td>
+            <td>NK-77281</td>
+            <td class="status-real">Real</td>
+        </tr>
+
+        <tr>
+            <td>2025-02-03</td>
+            <td>FastTrack Watch</td>
+            <td>FT-99212</td>
+            <td class="status-fake">Fake</td>
+        </tr>
+
+        <tr>
+            <td>2025-02-01</td>
+            <td>iPhone Charger</td>
+            <td>IP-55219</td>
+            <td class="status-real">Real</td>
+        </tr>
+    </table>
+
+    <a href="index.html" class="back-btn">← Back to Home</a>
+</div>
+
+</body>
+</html>
