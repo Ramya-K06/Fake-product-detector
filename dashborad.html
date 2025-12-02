@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Verification Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #e9f2ff;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #0f4c81;
+            padding: 18px;
+            text-align: center;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 0 18px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 27px;
+            font-weight: 700;
+            color: #0f4c81;
+        }
+
+        .sub {
+            text-align: center;
+            font-size: 16px;
+            color: #4b4b4b;
+            margin-bottom: 25px;
+        }
+
+        input[type=text], input[type=file] {
+            width: 92%;
+            padding: 14px;
+            margin: 12px;
+            border: 2px solid #0f4c81;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .btn {
+            width: 94%;
+            padding: 14px;
+            margin: 12px;
+            background: #0f4c81;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #0f4c81;
+        }
+
+        /* Result Card */
+        .result-box {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #f0f7ff;
+            border-left: 5px solid #0f4c81;
+            display: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+
+    <script>
+        function showResult() {
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        Product Authenticity Checker
+    </div>
+
+    <!-- Main Verification Box -->
+    <div class="container">
+
+        <div class="title">Verify Your Product</div>
+        <div class="sub">Check if your product is real or fake in seconds.</div>
+
+        <input type="text" placeholder="Enter Product Serial Number / Code">
+
+        <input type="file">
+
+        <button class="btn" onclick="showResult()">Analyze Product</button>
+
+        <!-- Result -->
+        <div class="result-box" id="result">
+            <h3 style="margin:0; color:#0f4c81;">Result:</h3>
+            <p style="font-size:16px; color:#333;">
+                ✔ Your product appears to be **Genuine**  
+                Risk Level: Low  
+                Suggestion: Safe to use. Verified with database.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer">© 2025 Product Verification System</div>
+
+</body>
+</html>
