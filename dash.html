@@ -74,7 +74,52 @@
         font-size: 40px;
         margin-bottom: 10px;
     }
+
+    /* Logout Floating Button */
+    .logout-logo {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #1b4b7c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 999;
+    }
+    .logout-logo img {
+        width: 32px;
+    }
+    .logout-menu {
+        position: fixed;
+        bottom: 95px;
+        right: 25px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        display: none;
+        padding: 10px 15px;
+        z-index: 999;
+    }
+    .logout-menu a {
+        text-decoration: none;
+        font-size: 16px;
+        color: #1b4b7c;
+        font-weight: 600;
+    }
 </style>
+
+<script>
+function toggleLogoutMenu() {
+    var menu = document.getElementById("logoutMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>
+
 </head>
 <body>
 
@@ -113,5 +158,16 @@
     </div>
 </div>
 
+<!-- Logout Floating Button -->
+<div class="logout-logo" onclick="toggleLogoutMenu()">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" alt="Logout">
+</div>
+
+<!-- Logout Menu -->
+<div id="logoutMenu" class="logout-menu">
+    <a href="fake.html">Logout</a>
+</div>
+
 </body>
 </html>
+
