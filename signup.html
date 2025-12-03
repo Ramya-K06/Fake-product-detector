@@ -156,7 +156,6 @@ function togglePassword() {
         cpass.type = "password";
     }
 }
-
 function validateSignup() {
     let name = document.getElementById("name").value.trim();
     let email = document.getElementById("email").value.trim();
@@ -166,24 +165,36 @@ function validateSignup() {
 
     error.innerHTML = "";
 
+    // Empty check
     if (name === "" || email === "" || pass === "" || cpass === "") {
         error.innerHTML = "⚠ All fields are required.";
         return;
     }
 
+    // EMAIL VALIDATION (Only Gmail or Yahoo)
+    let allowedEmails = /@(gmail\.com|yahoo\.com)$/;
+
+    if (!allowedEmails.test(email)) {
+        error.innerHTML = "⚠ Email must end with @gmail.com or @yahoo.com.";
+        return;
+    }
+
+    // Password length check
     if (pass.length < 8) {
         error.innerHTML = "⚠ Password must be at least 8 characters.";
         return;
     }
 
+    // Password match check
     if (pass !== cpass) {
         error.innerHTML = "⚠ Passwords do not match.";
         return;
     }
 
-    // SUCCESS → GO TO DASHBOARD
+    // SUCCESS → Go to dashboard
     window.location.href = "dash.html";
 }
+
 </script>
 
 </body>
