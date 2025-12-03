@@ -26,6 +26,13 @@
         text-align: center;
     }
 
+    h2 {
+        font-size: 26px;
+        color: #0f4c81;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
     .input-box {
         margin-bottom: 20px;
         text-align: left;
@@ -42,6 +49,22 @@
         border-radius: 8px;
         border: 1.8px solid #b9d4f2;
         background: #f0f6ff;
+        margin-top: 5px;
+    }
+
+    /* SHOW PASSWORD ALIGNMENT */
+    .show-password-box {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: -10px;
+        cursor: pointer;
+    }
+
+    .show-password-box input[type="checkbox"] {
+        width: auto;
+        transform: scale(1.2);
+        cursor: pointer;
     }
 
     .signup-btn {
@@ -53,6 +76,23 @@
         font-size: 16px;
         font-weight: 700;
         cursor: pointer;
+        margin-top: 10px;
+        border: none;
+    }
+
+    .signup-btn:hover {
+        background: #0c3a63;
+    }
+
+    .error {
+        color: red;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .links {
+        margin-top: 18px;
+        font-size: 14px;
     }
 
     .links a {
@@ -68,27 +108,83 @@
 <div class="container">
     <h2>CREATE ACCOUNT</h2>
 
+    <div id="errorMsg" class="error"></div>
+
     <div class="input-box">
         <label>Full Name</label>
-        <input type="text" placeholder="Enter your name">
+        <input type="text" id="name" placeholder="Enter your name" autocomplete="off">
     </div>
 
     <div class="input-box">
         <label>Email</label>
-        <input type="email" placeholder="Enter email">
+        <input type="email" id="email" placeholder="Enter email" autocomplete="off">
     </div>
 
     <div class="input-box">
         <label>Password</label>
-        <input type="password" placeholder="Create password">
+        <input type="password" id="password" placeholder="Create password" minlength="8" autocomplete="off">
     </div>
 
-    <button class="signup-btn">Sign Up</button>
+    <div class="input-box">
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter password" minlength="8" autocomplete="off">
+    </div>
+
+    <!-- SHOW PASSWORD -->
+    <div class="show-password-box">
+        <input type="checkbox" id="showPass" onclick="togglePassword()">
+        <label for="showPass">Show Password</label>
+    </div>
+
+    <button class="signup-btn" onclick="validateSignup()">Sign Up</button>
 
     <div class="links">
         <p>Already have an account? <a href="loginpage.html">Login</a></p>
     </div>
 </div>
+
+<script>
+function togglePassword() {
+    let pass = document.getElementById("password");
+    let cpass = document.getElementById("confirmPassword");
+
+    if (pass.type === "password") {
+        pass.type = "text";
+        cpass.type = "text";
+    } else {
+        pass.type = "password";
+        cpass.type = "password";
+    }
+}
+
+function validateSignup() {
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let pass = document.getElementById("password").value;
+    let cpass = document.getElementById("confirmPassword").value;
+    let error = document.getElementById("errorMsg");
+
+    error.innerHTML = "";
+
+    if (name === "" || email === "" || pass === "" || cpass === "") {
+        error.innerHTML = "⚠ All fields are required.";
+        return;
+    }
+
+    if (pass.length < 8) {
+        error.innerHTML = "⚠ Password must be at least 8 characters.";
+        return;
+    }
+
+    if (pass !== cpass) {
+        error.innerHTML = "⚠ Passwords do not match.";
+        return;
+    }
+
+    // SUCCESS → GO TO DASHBOARD
+    window.location.href = "dash.html";
+}
+</script>
 
 </body>
 </html>
