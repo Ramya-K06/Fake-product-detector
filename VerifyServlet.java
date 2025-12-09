@@ -2,24 +2,24 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
-import org.json.JSONObject;
 
 public class VerifyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         
-        response.setContentType("application/json");
+        response.setContentType("text/plain");  // plain text instead of JSON
         PrintWriter out = response.getWriter();
 
-        StringBuilder sb = new StringBuilder();
         BufferedReader reader = request.getReader();
+        StringBuilder sb = new StringBuilder();
         String line;
         while ((line = reader.readLine()) != null) {
             sb.append(line);
         }
-        
-        JSONObject json = new JSONObject(sb.toString());
-        String serialCode = json.getString("serialCode");
+
+        // Extract serialCode from simple format: serialCode=APL123
+        String body = sb.toString();
+        String serialCode = body.replace("serialCode=", "");
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -33,9 +33,9 @@ public class VerifyServlet extends HttpServlet {
 
             String result;
             if(rs.next()) {
-                result = "✅ Genuine Product";
+                result = "Genuine Product";
             } else {
-                result = "❌ Fake Product";
+                result = "Fake Product";
             }
 
             // Save report
@@ -45,13 +45,11 @@ public class VerifyServlet extends HttpServlet {
             ps2.setString(2, result);
             ps2.executeUpdate();
 
-            JSONObject res = new JSONObject();
-            res.put("result", result);
-            out.print(res.toString());
+            out.print(result);  // send result as plain text
 
         } catch(Exception e) {
             e.printStackTrace();
-            out.print("{\"result\":\"Error\"}");
+            out.print("Error");
         }
     }
 }
