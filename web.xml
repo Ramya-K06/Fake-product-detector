@@ -1,0 +1,10 @@
+<web-app>
+    <servlet>
+        <servlet-name>VerifyServlet</servlet-name>
+        <servlet-class>VerifyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerifyServlet</servlet-name>
+        <url-pattern>/VerifyServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
